@@ -93,9 +93,9 @@ drop1:: [a] -> Int -> [a]
 drop1 (x:xs) 0 = xs
 drop1 (x:xs) n = drop1 xs (n-1)
 
-concat1 :: [a] -> [a] -> [a]
-concat1 [] ys = ys
-concat1 (x:xs) ys = x : concat1 xs ys
+concat2 :: [a] -> [a] -> [a]
+concat2 [] ys = ys
+concat2 (x:xs) ys = x : concat2 xs ys
 
 pegarAtras:: [a] -> a -> [a]
 pegarAtras [] x = [x]
@@ -117,6 +117,11 @@ sumaPares ((a,b) :xs) = a+b+sumaPares xs
 rev :: [a] -> [a]
 rev [] = []
 rev (x:xs) = rev xs ++ [x]
+
+concat1 :: [[a]] -> [a]
+concat1 [] = []
+concat1 (x:xs) = x ++ concat1 xs
+
 
  
 
