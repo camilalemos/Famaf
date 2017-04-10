@@ -63,9 +63,37 @@ todosMenores10' [] = True
 todosMenores10' (x:xs) = x<10 && todosMenores10' xs
 
 
+maximo:: [Int] -> Int
+maximo [x]= x
+maximo (x:xs)= max x (maximo xs)
 
-maximo:: [Int] ->
+repartir :: [String] -> [String] -> [(String,String)]
+repartir [] [] = []
+repartir [] (xs) = []
+repartir (xs) [] = []
+repartir (x:xs) (y:ys) = (x,y) : repartir xs ys
+
+apellidos :: [(String,String,Int)] -> [String]
+apellidos [] = []
+apellidos ((a,b,c):xs) = b : apellidos xs
+
+length2 :: [a] -> Int
+length2 [] = 0
+length2 (x:xs) = 1+ length2 xs
+
+posicion :: [a] -> Int -> a
+posicion (x:xs) 0 = x 
+posicion (x:xs) n = posicion xs (n-1)
+
+take1:: [a] -> Int -> [a]
+take1 (x:xs) 0 = [x]
+take1 (x:xs) n = x: take1 xs (n-1)
+
+drop1:: [a] -> Int -> [a]
+drop1 (x:xs) 0 = xs
+drop1 (x:xs) n = drop1 xs (n-1)
 
 
+                 
 
 
