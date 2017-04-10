@@ -114,6 +114,11 @@ sumaPares:: [(Int,Int)] -> Int
 sumaPares [] = 0
 sumaPares ((a,b) :xs) = a+b+sumaPares xs
 
+rev :: [a] -> [a]
+rev [] = []
+rev (x:xs) = rev xs ++ [x]
+
+ 
 
 
 
