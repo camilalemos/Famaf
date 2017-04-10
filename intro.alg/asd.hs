@@ -93,7 +93,31 @@ drop1:: [a] -> Int -> [a]
 drop1 (x:xs) 0 = xs
 drop1 (x:xs) n = drop1 xs (n-1)
 
+concat1 :: [a] -> [a] -> [a]
+concat1 [] ys = ys
+concat1 (x:xs) ys = x : concat1 xs ys
 
-                 
+pegarAtras:: [a] -> a -> [a]
+pegarAtras [] x = [x]
+pegarAtras (y:ys) x = y: pegarAtras ys x
+
+repetir :: Int -> Int -> [Int]
+repetir a 0 = [a]
+repetir a n = a: repetir a (n-1)
+
+ultimo:: [a] -> a
+ultimo [] = undefined
+ultimo (x:xs) | length xs==0 = x 
+              | otherwise = ultimo xs
+
+sumaPares:: [(Int,Int)] -> Int
+sumaPares [] = 0
+sumaPares ((a,b) :xs) = a+b+sumaPares xs
+
+
+
+
+
+                
 
 
